@@ -12,7 +12,7 @@ export default function Home() {
         <title>Home | My portfolio</title>
         <meta
           name="description"
-          content="Sou um desenvolvedor Front-end e aqui apresento alguns projetos desenvolvidos por mim!"
+          content="I'm a Full-Stack developer and here I present some projects developed by me!"
         />
         <meta property="og:image" content="/ogimage.png" />
         <meta property="og:image:secure_url" content="/ogimage.png" />
