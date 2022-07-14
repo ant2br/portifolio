@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <HomeContainer>
       <Head>
-        <title>Home | Meu portfólio</title>
+        <title>Home | My portfolio</title>
         <meta
           name="description"
           content="Sou um desenvolvedor Front-end e aqui apresento alguns projetos desenvolvidos por mim!"
