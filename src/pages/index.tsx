@@ -20,7 +20,7 @@ export default function Home() {
         <meta name="twitter:image:src" content="/ogimage.png" />
       </Head>
 
-      <Header />
+      <Header children={''} />
 
       <main className="container">
 
