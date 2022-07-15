@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Conhecimentos from '../components/Conhecimentos';
 import Experiencias from '../components/Experiencias';
 import Footer from '../components/Footer';
 import { Header } from '../components/Header';
@@ -27,7 +28,7 @@ export default function Home() {
 
       <HomePage />
       <Experiencias />
-
+      <Conhecimentos />
       </main>
 
       <Footer />
