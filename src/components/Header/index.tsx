@@ -12,7 +12,9 @@ export function Header({ children }: HeaderProps) {
     <Container>
       <ul>
         <NavLink title="Home" path="/" />
-        <NavLink title="Projects" path="/projetos" includes />
+        <NavLink title="Projects" path="/projects" includes />
+        <NavLink title="Contact" path="/contact" includes />
+
       </ul>
     </Container>
   );
