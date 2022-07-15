@@ -1,16 +1,27 @@
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import Footer from '../../components/Footer';
 import { Header } from '../../components/Header';
+import ProjetoItem from '../../components/ProjetoItem';
 import { ProjetosContainer } from '../../styles/ProjetosStyles';
-import theme from '../../styles/theme';
 
+interface IProjeto {
+  slug: string;
+  title: string;
+  type: string;
+  description: string;
+  link: string;
+  thumbnail: string;
+}
 
+interface ProjetoProps {
+  projetos: IProjeto[];
+}
 
-export default function Projects() {
+export default function Projetos({ projetos }: ProjetoProps) {
   return (
     <ProjetosContainer>
       <Head>
-        <title>Projects | Meu portfólio</title>
+        <title>Projetos | Meu portfólio</title>
         <meta
           name="description"
           content="Sou um desenvolvedor Front-end e aqui apresento alguns projetos desenvolvidos por mim!"
@@ -27,12 +38,53 @@ export default function Projects() {
 
       <Header children={''} />
       <main className="container">
-        <h1 style={{color: theme.primary}}>Page under construction </h1>
+        {projetos.map(projeto => (
+          <ProjetoItem
+            key={projeto.slug}
+            title={projeto.title}
+            type={projeto.type}
+            slug={projeto.slug}
+            imgUrl={projeto.thumbnail}
+          />
+        ))}
       </main>
-
-      <Footer />
     </ProjetosContainer>
   );
 }
 
+export const getStaticProps: GetStaticProps = async () => {
+  
 
+  // const projetos = projectResponse.results.map(projeto => ({
+  //   slug: projeto.uid,
+  //   title: projeto.data.title,
+  //   type: projeto.data.type,
+  //   description: projeto.data.description,
+  //   link: projeto.data.link.url,
+  //   thumbnail: projeto.data.thumbnail.url
+  // }));
+
+  const projetos = [{
+    slug: "projeto-1",
+    title: 'Projeto 1',
+    type: 'Projeto',
+    description: 'Descrição do projeto 1',
+    link: 'https://www.google.com',
+    thumbnail: "https://via.placeholder.com/300x200"
+  },
+  {
+    slug: "projeto-2",
+    title: 'Projeto 2',
+    type: 'Projeto',
+    description: 'Descrição do projeto 2',
+    link: 'https://www.google.com',
+    thumbnail: "https://via.placeholder.com/300x200"
+  }]
+
+  return {
+    props: {
+      projetos
+    },
+    revalidate: 86400
+  };
+};

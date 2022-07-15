@@ -4,6 +4,7 @@ import Experiencias from '../components/Experiencias';
 import Footer from '../components/Footer';
 import { Header } from '../components/Header';
 import HomePage from '../components/Home';
+import Projetos from '../components/Projetos';
 import { HomeContainer } from '../styles/HomeStyles';
 
 
@@ -28,6 +29,7 @@ export default function Home() {
 
       <HomePage />
       <Experiencias />
+      <Projetos projetos={projetos}/>
       <Conhecimentos />
       </main>
 
@@ -38,3 +40,30 @@ export default function Home() {
     </HomeContainer>
   );
 }
+
+// const projetos = projectResponse.results.map(projeto => ({
+//   slug: projeto.uid,
+//   title: projeto.data.title,
+//   type: projeto.data.type,
+//   description: projeto.data.description,
+//   link: projeto.data.link.url,
+//   thumbnail: projeto.data.thumbnail.url
+// }));
+
+
+const projetos = [{
+  slug: "projeto-1",
+  title: 'Projeto 1',
+  type: 'Projeto',
+  description: 'Descrição do projeto 1',
+  link: 'https://www.google.com',
+  thumbnail: "https://via.placeholder.com/300x200"
+},
+{
+  slug: "projeto-2",
+  title: 'Projeto 2',
+  type: 'Projeto',
+  description: 'Descrição do projeto 2',
+  link: 'https://www.google.com',
+  thumbnail: "https://via.placeholder.com/300x200"
+}]
