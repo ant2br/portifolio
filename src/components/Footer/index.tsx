@@ -21,7 +21,7 @@ import {
       <Container>
         <div className="container">
           <button type="button" onClick={handleScrollTop}>
-            Voltar ao topo
+            Back to top
           </button>
           <section>
             <AiOutlineGithub
