@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Experiencias from '../components/Experiencias';
+import Footer from '../components/Footer';
 import { Header } from '../components/Header';
 import HomePage from '../components/Home';
 import { HomeContainer } from '../styles/HomeStyles';
@@ -28,6 +29,9 @@ export default function Home() {
       <Experiencias />
 
       </main>
+
+      <Footer />
+
 
       
     </HomeContainer>
