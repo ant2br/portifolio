@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Footer from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { ProjetosContainer } from '../../styles/ProjetosStyles';
 import theme from '../../styles/theme';
@@ -28,6 +29,8 @@ export default function Projects() {
       <main className="container">
         <h1 style={{color: theme.primary}}>Page under construction </h1>
       </main>
+
+      <Footer />
     </ProjetosContainer>
   );
 }
