@@ -19,7 +19,7 @@ function Conhecimentos() {
 
       </section>
 
-      <TextMuito>And much more (See LinkedIn)</TextMuito>
+      <TextMuito>And much more (See more skills in LinkedIn)</TextMuito>
     </Container>
   );
 }
