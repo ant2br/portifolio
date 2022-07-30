@@ -15,7 +15,7 @@ function ProjetoItem() {
         const token = localStorage.getItem('user');
         if (token) {
             var user = JSON.parse(token);
-            
+
             if(user.role === 'admin'){
                 router.push('/admin');
             } else {
@@ -42,7 +42,7 @@ function ProjetoItem() {
         try {
             setLoading(true);
 
-            let response  = await axios.post('http://localhost:3000/api/login', {email: email, password: password});
+            let response  = await axios.post('https://brener.dev/api/login', {email: email, password: password});
 
         
             localStorage.setItem('user', JSON.stringify(response.data));
