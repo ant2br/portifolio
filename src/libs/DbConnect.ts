@@ -7,16 +7,18 @@ if (!MONGODB_URI) {
     'Please define the MONGODB_URI environment variable inside .env.local'
   )
 }
+const globalAny:any = global;
+
 
 /**
  * Global is used here to maintain a cached connection across hot reloads
  * in development. This prevents connections growing exponentially
  * during API Route usage.
  */
-let cached = global.mongoose
+let cached = globalAny.mongoose
 
 if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null }
+  cached = globalAny.mongoose = { conn: null, promise: null }
 }
 
 async function dbConnect() {
