@@ -13,9 +13,9 @@ export function HeaderAdmin({ children }: HeaderProps) {
       <ul>
         <NavLink title="" path="/" />
         <NavLink title="Dashboard" path="/admin" />
-        <NavLink title="New Project" path="/" />
-        <NavLink title="Projects" path="/projects" includes />
-        <NavLink title="Logout" path="/contact" />
+        <NavLink title="New Project" path="/admin/new-project" />
+        <NavLink title="Projects" path="/admin/projects" includes />
+        <NavLink title="Logout" path="/logout" />
 
       </ul>
     </Container>

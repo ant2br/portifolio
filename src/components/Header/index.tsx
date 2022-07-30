@@ -15,6 +15,7 @@ export function Header({ children }: HeaderProps) {
         <NavLink title="Projects" path="/projects" includes />
         <NavLink title="Contact" path="/contact" includes />
 
+
       </ul>
     </Container>
   );

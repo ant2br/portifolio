@@ -11,17 +11,15 @@ import { HomeContainer } from '../../styles/HomeStyles';
 
 
 export default function Home() {
-
   useEffect (() => {
-  const token = localStorage.getItem('user');
-  if (!token) {
-      router.replace('/');
-  }
+  
+    localStorage.removeItem('user');
+    router.push('/');
 } , []);
   return (
     <HomeContainer>
       <Head>
-        <title>Admin | My portfolio</title>
+        <title>Admin - New Project | My portfolio</title>
       </Head>
 
       <HeaderAdmin children={''} />
