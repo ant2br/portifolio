@@ -34,7 +34,7 @@ function Projetos({ projetos }: ProjetosProps) {
       </section>
       <button type="button">
         <Link href="/projetos">
-          <a>See all projects</a>
+          See all projects
         </Link>
       </button>
     </Container>
