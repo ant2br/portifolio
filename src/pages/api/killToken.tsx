@@ -12,7 +12,7 @@ export default async (req, res) => {
 
 
      if(req.method === 'DELETE'){
-        await dbConnect();
+        //await dbConnect();
 
             //get user from token
             const token = req.headers.authorization.split(' ')[1];
