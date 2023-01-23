@@ -21,7 +21,10 @@
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.3.0",
     "react-icons": "^4.4.0",
-    "styled-components": "^5.3.0"
+    "react-quill": "^2.0.0",
+    "react-tinymce": "^0.7.0",
+    "styled-components": "^5.3.0",
+    "tinymce": "^6.3.1"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
