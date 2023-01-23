@@ -98,7 +98,7 @@ onChange={(e) => setImage(e.target.value)}
 style={styles.input}
 />
 <label>Content:</label>
-<textarea />
+<textarea value={content} onChange={(e) => setContent(e.target.value)}/>
 <button type='submit' style={styles.button}>Submit</button>
 </form>
 </div>
