@@ -42,7 +42,7 @@ function ProjetoItem() {
         try {
             setLoading(true);
 
-            let response  = await axios.post('https://brener.dev/api/login', {email: email, password: password});
+            let response  = await axios.post('/api/login', {email: email, password: password});
 
         
             localStorage.setItem('user', JSON.stringify(response.data));
