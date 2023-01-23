@@ -43,7 +43,6 @@ const style = {
 const styles = {
     container: {
       display: 'flex',
-      flexDirection: 'column',
       alignItems: 'center',
       backgroundColor: '#11172B',
       color: '#63E2B4',
