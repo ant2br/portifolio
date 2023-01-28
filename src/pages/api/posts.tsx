@@ -13,18 +13,23 @@ export default async (req, res) => {
     console.log(req)
 
 
-     if(req.method === 'GET'){
-            const token = req.headers.authorization.split(' ')[1];
-            const decoded = jwt.verify(token, process.env.JWT_SECRET, async function(err, decoded) {
-                if (err) {
-                    res.status(401).json({error: 'Token expired'});
-                } else {
-
-                    await prisma.post.findMany().then((posts) => {
-                        res.status(200).json({posts});
-                    }).catch((err) => {})
-                }
-              });
+    if(req.method === 'GET'){
+        const token = req.headers.authorization.split(' ')[1];
+        const decoded = jwt.verify(token, process.env.JWT_SECRET, async function(err, decoded) {
+        if (err) {
+        res.status(401).json({error: 'Token expired'});
+        } else {
+        const page = req.query.page || 1;
+        const perPage = req.query.perPage || 10;
+        await prisma.post.findMany({
+        take: perPage,
+        skip: (page - 1) * perPage,
+        }).then((posts) => {
+        res.status(200).json({posts});
+        }).catch((err) => {})
+        }
+        });
+        
             
 
         
