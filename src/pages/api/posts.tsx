@@ -36,6 +36,10 @@ export default async (req, res) => {
     } else if (req.method === 'POST'){
         console.log(req.body)
         const token = req.headers.authorization.split(' ')[1];
+
+        if(!token){
+            res.status(401).json({error: 'Unauthorized'});
+        }
         const decoded = jwt.verify(token, process.env.JWT_SECRET, async function(err, decoded) {
             if (err) {
                 console.log()
