@@ -26,7 +26,7 @@ const handleSubmit = (e) => {
   };
 
   var storage = JSON.parse(localStorage.getItem('user'));
-  axios.post('/api/posts', {Headers: {'Authorization': `Bearer ${storage.token}`}, post}).then((res) => {
+  axios.post('/api/posts',post, {Headers: {'Authorization': `Bearer ${storage.token}`}}).then((res) => {
   console.log(res);
 
   });
