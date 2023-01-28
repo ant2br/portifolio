@@ -27,7 +27,7 @@ export default async (req, res) => {
 
             if(compare){
                 console.log(compare)
-                const token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: '1m'});
+                const token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: '15m'});
 
                 const refreshToken = jwt.sign({id: user.id, refreshToken: true}, process.env.JWT_SECRET, {expiresIn: '1d'});
 
