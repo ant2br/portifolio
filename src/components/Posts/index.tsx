@@ -21,16 +21,15 @@ useEffect(() => {
     var storage = JSON.parse(localStorage.getItem('user'));
 
 axios.get('/api/posts', {headers: {Authorization: `Bearer ${storage.token}`,}}).then((res) => {
-setPosts(res.data);
+setPosts(res.data.posts);
 });
 }, []);
 
 return (
 <ListContainer>
 {posts.map((post) => (
-<PostContainer key={post._id}>
+<PostContainer key={post.id}>
 <Title>{post.title}</Title>
-<Description>{post.description}</Description>
 <Image src={post.image} alt={post.title} />
 <Content>{post.content}</Content>
 </PostContainer>
