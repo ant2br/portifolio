@@ -18,7 +18,9 @@ const Posts = () => {
 const [posts, setPosts] = useState([]);
 
 useEffect(() => {
-axios.get('/api/posts').then((res) => {
+    var storage = JSON.parse(localStorage.getItem('user'));
+
+axios.get('/api/posts', {headers: {Authorization: `Bearer ${storage.token}`,}}).then((res) => {
 setPosts(res.data);
 });
 }, []);
