@@ -14,6 +14,20 @@ const Image = styled.img `width: 100%; max-width: 400px; margin-bottom: 10px;`;
 
 const Content = styled.p `font-size: 1.2rem;`;
 
+const CreatePostButton = styled.button`
+    background-color: #63E2B4;
+    color: #11172B;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    &:hover {
+        cursor: pointer;
+        background-color: #4DB6AC;
+    }
+`;
+
 const Posts = () => {
 const [posts, setPosts] = useState([]);
 
@@ -25,8 +39,15 @@ setPosts(res.data.posts);
 });
 }, []);
 
+const handleCreateNewPost = () => {
+    //history.push('/new-post');
+}
+
 return (
+    
 <ListContainer>
+<CreatePostButton onClick={handleCreateNewPost}>Criar Novo Post</CreatePostButton>
+
 {posts.map((post) => (
 <PostContainer key={post.id}>
 <Title>{post.title}</Title>
