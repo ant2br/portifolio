@@ -1,104 +1,52 @@
-import { darken } from 'polished';
 import styled from 'styled-components';
 
-export const Container = styled.section``;
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: #11172B;
+  color: #63E2B4;
+  padding: 30px;
+`;
 
-export const FormContainer = styled.form`
-  margin-top: 8rem;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  > button {
-    border: none;
-    padding: 1rem 2.5rem;
-    color: #fff;
-    font-weight: 300;
-    font-size: 1.2rem;
-    border-radius: 0.5rem;
-    background: ${({ theme }) => theme.primary};
-    transition: 0.5s;
-    width: fit-content;
-    &:disabled {
-      opacity: 0.5;
-    }
-    &:not(:disabled):hover {
-      background: ${({ theme }) => darken(0.05, theme.primary)};
-    }
-  }
-  @media (max-width: 700px) {
-    margin-top: 5rem;
-    grid-template-columns: 1fr;
-  }
-  @media (max-width: 450px) {
-    > button {
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-    }
-  }
+export const Form = styled.form`
+  width: 80%;
+`;
+
+export const Textarea = styled.textarea`
+  background-color: #1E253E;
+  color: #63E2B4;
+  border: 1px solid #65E8B8;
+  border-radius: 7px;
+  padding: 10px;
+  margin-bottom: 20px;
 `;
 
 
-export const Link = styled.a`
-    color: ${({ theme }) => theme.primary};
-    font-size: 1.8rem;
-    font-weight: 300;
-    text-decoration: none;
-    transition: 0.5s;
-    &:hover {
-        color: ${({ theme }) => darken(0.05, theme.textLight)};
-    }
-
+export const Label = styled.label`
+  display: block;
+  margin-bottom: 10px;
 `;
 
 export const Input = styled.input`
-  height: 3rem;
-  width: 100%;
-  background: ${({ theme }) => theme.inputBackground};
-  border: 1px solid ${({ theme }) => theme.border};
-  padding: 1.7rem 1.5rem;
-  display: block;
-  color: ${({ theme }) => theme.primary};
-  border-radius: 0.5rem;
-  font-size: 1.2rem;
-  outline: none;
-  transition: 0.5s;
-  &:focus {
-    border-color: ${({ theme }) => theme.primary};
-  }
-  &::placeholder {
-    color: ${({ theme }) => theme.primary};
-  }
-  @media (max-width: 450px) {
-    padding: 1.4rem;
-    font-size: 1rem;
-  }
+  background-color: #1E253E;
+  color: #63E2B4;
+  border: 1px solid #65E8B8;
+  border-radius: 7px;
+  padding: 10px;
+  margin-bottom: 20px;
 `;
 
-export const TextArea = styled.textarea`
-  height: 10rem;
-  width: 100%;
-  background: ${({ theme }) => theme.inputBackground};
-  border: 1px solid ${({ theme }) => theme.border};
-  padding: 1.7rem 1.5rem;
-  color: ${({ theme }) => theme.primary};
-  border-radius: 0.5rem;
-  font-size: 1.2rem;
-  outline: none;
-  transition: 0.5s;
-  resize: none;
-  grid-column: 1 / 3;
-  &:focus {
-    border-color: ${({ theme }) => theme.primary};
-  }
-  &::placeholder {
-    color: ${({ theme }) => theme.primary};
-  }
-  @media (max-width: 700px) {
-    grid-column: 1;
-  }
-  @media (max-width: 450px) {
-    padding: 1.4rem;
-    font-size: 1rem;
-  }
+export const Button = styled.button`
+  background-color: #65E8B8;
+  color: #1E253E;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  margin-top: 20px;
+`;
+
+export const Quill = styled.div`
+  background-color: #1E253E;
+  color: #63E2B4;
+  border-radius: 7px;
 `;
