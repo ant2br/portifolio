@@ -28,6 +28,12 @@ const CreatePostButton = styled.button`
     }
 `;
 
+const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+`;
+
 const Posts = () => {
 const [posts, setPosts] = useState([]);
 
@@ -44,18 +50,18 @@ const handleCreateNewPost = () => {
 }
 
 return (
-    
 <ListContainer>
-<CreatePostButton onClick={handleCreateNewPost}>Criar Novo Post</CreatePostButton>
-
-{posts.map((post) => (
-<PostContainer key={post.id}>
-<Title>{post.title}</Title>
-<Image src={post.image} alt={post.title} />
-<Content>{post.content}</Content>
-</PostContainer>
-))}
-</ListContainer>
+        <ButtonContainer>
+            <CreatePostButton onClick={handleCreateNewPost}>Criar Novo Post</CreatePostButton>
+        </ButtonContainer>
+        {posts.map((post) => (
+        <PostContainer key={post.id}>
+            <Title>{post.title}</Title>
+            <Image src={post.image} alt={post.title} />
+            <Content>{post.content}</Content>
+        </PostContainer>
+        ))}
+    </ListContainer>
 );
 };
 
