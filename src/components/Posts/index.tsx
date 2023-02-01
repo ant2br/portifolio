@@ -34,8 +34,27 @@ const ButtonContainer = styled.div`
     margin-bottom: 20px;
 `;
 
+const PageButton = styled.button`
+  padding: 10px 20px;
+  margin-right: 20px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
 const Posts = () => {
 const [posts, setPosts] = useState([]);
+const [currentPage, setCurrentPage] = useState(1);
+const [postsPerPage] = useState(10);
+
+const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
 useEffect(() => {
     var storage = JSON.parse(localStorage.getItem('user'));
@@ -51,16 +70,20 @@ const handleCreateNewPost = () => {
 
 return (
 <ListContainer>
-        <ButtonContainer>
-            <CreatePostButton onClick={handleCreateNewPost}>Criar Novo Post</CreatePostButton>
-        </ButtonContainer>
-        {posts.map((post) => (
+      <ButtonContainer>
+        <CreatePostButton onClick={handleCreateNewPost}>
+          Criar Novo Post
+        </CreatePostButton>
+      </ButtonContainer>
+      {currentPosts.map((post) => (
         <PostContainer key={post.id}>
-            <Title>{post.title}</Title>
-            <Image src={post.image} alt={post.title} />
-            <Content>{post.content}</Content>
+          <Title>{post.title}</Title>
+          <Image src={post.image} alt={post.title} />
+          <Content>{post.content}</Content>
         </PostContainer>
-        ))}
+      ))}
+      <PageButton onClick={() => paginate(currentPage - 1)}>Anterior</PageButton>
+      <PageButton onClick={() => paginate(currentPage + 1)}>Próximo</PageButton>
     </ListContainer>
 );
 };
