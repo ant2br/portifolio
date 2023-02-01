@@ -63,7 +63,7 @@ const Posts = () => {
       <PageButton
         onClick={() => {
           paginate(currentPage - 1);
-          handleChangePage();
+
         }}
         disabled={currentPage === 1}
       >
@@ -72,7 +72,7 @@ const Posts = () => {
       <PageButton
         onClick={() => {
           paginate(currentPage + 1);
-          handleChangePage();
+
         }}
       >
         Próximo
