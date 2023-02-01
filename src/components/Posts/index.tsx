@@ -56,10 +56,16 @@ const indexOfLastPost = currentPage * postsPerPage;
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const handleChangePage = (e) => {
+    var storage = JSON.parse(localStorage.getItem('user'));
+    axios.get(`/api/posts?page=${currentPage}`, {headers: {Authorization: `Bearer ${storage.token}`,}}).then((res) => {
+        setPosts(res.data.posts);
+  };
+
 useEffect(() => {
     var storage = JSON.parse(localStorage.getItem('user'));
 
-axios.get('/api/posts', {headers: {Authorization: `Bearer ${storage.token}`,}}).then((res) => {
+axios.get(`/api/posts?page=${currentPage}`, {headers: {Authorization: `Bearer ${storage.token}`,}}).then((res) => {
 setPosts(res.data.posts);
 });
 }, []);
@@ -82,7 +88,7 @@ return (
           <Content>{post.content}</Content>
         </PostContainer>
       ))}
-      <PageButton onClick={() => paginate(currentPage - 1)}>Anterior</PageButton>
+      <PageButton onClick={() => {paginate(currentPage - 1); }}>Anterior</PageButton>
       <PageButton onClick={() => paginate(currentPage + 1)}>Próximo</PageButton>
     </ListContainer>
 );
