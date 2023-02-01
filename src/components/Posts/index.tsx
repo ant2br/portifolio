@@ -43,12 +43,14 @@ const Posts = () => {
   };
 
   return (
+    
     <ListContainer>
-      <ButtonContainer>
+        <ButtonContainer>
         <CreatePostButton onClick={handleCreateNewPost}>
           Criar Novo Post
         </CreatePostButton>
       </ButtonContainer>
+      
       {posts.map((post) => (
         <PostContainer key={post.id}>
           <Title>{post.title}</Title>

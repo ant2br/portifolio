@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 
-export const ListContainer = styled.div `display: flex; flex-wrap: wrap; align-items: center; background-color: #11172B; color: #63E2B4; padding: 30px;`
+export const ListContainer = styled.div `display: row; flex-wrap: wrap; align-items: center; background-color: #11172B; color: #63E2B4; padding: 30px;`
 
 export const PostContainer = styled.div `width: 80%; background-color: #1E253E; color: #63E2B4; border: 1px solid #65E8B8; border-radius: 7px; padding: 10px; margin-bottom: 20px;`;
 
