@@ -94,8 +94,8 @@ return (
           <Content>{post.content}</Content>
         </PostContainer>
       ))}
-      <PageButton onClick={() => {paginate(currentPage - 1); handleChangePage() }}>Anterior</PageButton>
-      <PageButton onClick={() => {paginate(currentPage + 1); handleChangePage()}}>Próximo</PageButton>
+      <PageButton onClick={ async () => {await paginate(currentPage - 1); handleChangePage() }}>Anterior</PageButton>
+      <PageButton onClick={async () => { await paginate(currentPage + 1); handleChangePage()}}>Próximo</PageButton>
     </ListContainer>
 );
 };
