@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Input, Form, Label, Textarea, Button, Container } from './styles';
+import toast, { Toaster } from 'react-hot-toast';
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');
@@ -22,11 +23,29 @@ const CreatePost = () => {
       headers: {
         Authorization: `Bearer ${storage.token}`,
       },
+    }).then((res) => {
+      toast(res.data.message, {
+        style: {
+            background: '#00FF3C',
+            color: '#fff'
+        }
+    });  
+    }).catch((err) => {
+      toast(err.response.data.message, {
+        style: {
+            background: '#FF0000',
+            color: '#fff'
+        }
+    });
     });
   }
 
   return (
     <Container>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        />
       <Form onSubmit={handleSubmit}>
         <Label>Title:</Label>
         <Input
