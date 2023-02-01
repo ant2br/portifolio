@@ -56,12 +56,7 @@ const indexOfLastPost = currentPage * postsPerPage;
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const handleChangePage = () => {
-    var storage = JSON.parse(localStorage.getItem('user'));
-    axios.get(`/api/posts?page=${currentPage}`, {headers: {Authorization: `Bearer ${storage.token}`,}}).then((res) => {
-        setPosts(res.data.posts);
-  };
-}
+
 
 
 useEffect(() => {
@@ -74,6 +69,15 @@ setPosts(res.data.posts);
 
 const handleCreateNewPost = () => {
     //history.push('/new-post');
+}
+
+
+const handleChangePage = () => {
+    var storage = JSON.parse(localStorage.getItem('user'));
+
+    axios.get(`/api/posts?page=${currentPage}`, {headers: {Authorization: `Bearer ${storage.token}`,}}).then((res) => {
+    setPosts(res.data.posts);
+    });
 }
 
 return (
