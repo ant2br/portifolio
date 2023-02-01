@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 const ListContainer = styled.div `display: flex; flex-wrap: wrap; align-items: center; background-color: #11172B; color: #63E2B4; padding: 30px;`
 
@@ -48,6 +49,7 @@ const Posts = () => {
 const [posts, setPosts] = useState([]);
 const [currentPage, setCurrentPage] = useState(1);
 const [postsPerPage] = useState(10);
+const history = useHistory();
 
 const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -68,7 +70,7 @@ setPosts(res.data.posts);
 }, []);
 
 const handleCreateNewPost = () => {
-    //history.push('/new-post');
+    history.push('/admin/new-post');
 }
 
 
