@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Input, Form, Label, Textarea, Button, Container } from './styles';
 import toast, { Toaster } from 'react-hot-toast';
+import Router from 'next/router';
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');
@@ -30,6 +31,8 @@ const CreatePost = () => {
             color: '#fff'
         }
     });  
+
+    Router.push('/admin/posts')
     }).catch((err) => {
       toast(err.response.data.message, {
         style: {

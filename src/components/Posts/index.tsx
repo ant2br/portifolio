@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 import { ButtonContainer, Content, CreatePostButton, ListContainer, PageButton, PostContainer, Title, Image } from './styles';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
+  const router = useRouter();
 
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -26,7 +27,7 @@ const Posts = () => {
   }, [currentPage]);
 
   const handleCreateNewPost = () => {
-    //history.push('/new-post');
+    router.push('/admin/new-post');
   };
 
   const handleChangePage = () => {
@@ -53,7 +54,7 @@ const Posts = () => {
       
       {posts.map((post) => (
         <PostContainer key={post.id}>
-          <Title>{post.title}</Title>
+          <Title onClick={() => router.push(`/admin/posts/${post.id}`)}>{post.title}</Title>
           <Image src={post.image} alt={post.title} />
           <Content>{post.content}</Content>
         </PostContainer>

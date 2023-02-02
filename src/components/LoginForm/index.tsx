@@ -47,15 +47,13 @@ function ProjetoItem() {
         
             localStorage.setItem('user', JSON.stringify(response.data));
 
-
-            
-
-
-
-            
-            
-
-            
+            if(response.data.role === 'ADMIN'){
+                router.push('/admin');
+            }
+            else {
+                router.push('/');
+            }
+  
         } catch (error) {
             toast(error.response.data.message, {
                 style: {
